@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { getList } from "../../libs/microcms";
+import { getBlog } from "../../libs/microcms";
 
 export default async function StaticPage() {
- const contents = await getList();
+ const blog = await getBlog();
+ const contents = blog.contents;
 
  // ページの生成された時間を取得
  const time = new Date().toLocaleString();
