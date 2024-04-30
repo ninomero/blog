@@ -5,12 +5,23 @@ import type {
   MicroCMSDate,
 } from "microcms-js-sdk";
 
+// カテゴリーの型定義
+export type Category = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  revisedAt: string;
+  name: string;
+}
+
 //ブログの型定義
 export type Blog = {
   id: string;
   title: string;
   content: string;
   eyecatch?: MicroCMSImage;
+  category: Category
 } & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
@@ -32,7 +43,7 @@ export async function getBlog(queries?: MicroCMSQueries) {
 	const blog = await client.getList<Blog>({
 		customRequestInit: {
 			next: {
-				revalidate: 3600,
+				revalidate: 0,
 			},
 		},
 		endpoint: String(process.env.MICROCMS_ENDPOINT),
@@ -49,7 +60,7 @@ export const getDetail = async (
   const detailData = await client.getListDetail<Blog>({
     customRequestInit: {
 			next: {
-				revalidate: 3600,
+				revalidate: 0,
 			},
 		},
     endpoint: String(process.env.MICROCMS_ENDPOINT),
@@ -59,3 +70,36 @@ export const getDetail = async (
 
   return detailData;
 };
+
+// カテゴリ一覧を取得
+export async function getCategories(queries?: MicroCMSQueries) {
+	const categories = await client.getList<Category>({
+		customRequestInit: {
+			next: {
+				revalidate: 0,
+			},
+		},
+		endpoint: "categories",
+		queries,
+	});
+	return categories;
+}
+
+// idに該当するカテゴリを取得
+export async function getCategoryDetail(contentId: string, queries?: MicroCMSQueries) {
+  
+  console.log("^^^^^^^^^^^^^^^^^^^^^^^")
+  console.log(contentId)
+
+	const categoriesDetail = await client.getListDetail<Category>({
+		customRequestInit: {
+			next: {
+				revalidate: 0,
+			},
+		},
+		endpoint: "categories",
+		contentId,
+		queries,
+	});
+	return categoriesDetail;
+}

@@ -1,1 +1,1 @@
-export {default as BlogPagination} from './BlogPagination'
+export { default as BlogPagination } from "./elements/pagination/BlogPagination";
