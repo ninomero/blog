@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/pagination": "^2.0.30",
     "html-react-parser": "^5.1.10",
     "microcms-js-sdk": "^3.1.1",
     "next": "14.2.3",
