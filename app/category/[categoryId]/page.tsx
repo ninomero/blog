@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { NextUIProvider } from "@nextui-org/react";
 import { Header } from "@/app/components/layout/header";
 import { BlogPagination } from "@/app/components";
+import Footer from "@/app/components/layout/footer/Footer";
 
 type Props = {
   params: { categoryId: string };
@@ -63,6 +64,7 @@ export default function CategoryArticleList(props: Props) {
             initialPage={page}
           />
         </div>
+        <Footer />
     </>
 
   );

@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import { getDetail, getBlog } from "@/libs/microcms";
 import { Header } from "@/app/components/layout/header";
 import dayjs from 'dayjs';
+import Footer from "@/app/components/layout/footer/Footer";
 
 export async function generateStaticParams() {
     const contents = await getBlog();
@@ -44,6 +45,7 @@ export default async function StaticDetailPage({
                 </div>
                 <div className="md:text-md sm:text-sm">{parse(post.content)}</div>
             </div>
+            <Footer />
         </>
     );
 }

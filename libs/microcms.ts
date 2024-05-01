@@ -39,7 +39,7 @@ export async function getBlog(queries?: MicroCMSQueries) {
 	const blog = await client.getList<Blog>({
 		customRequestInit: {
 			next: {
-				revalidate: 0,
+				revalidate: Number(process.env.MICROCMS_REVALIDATE),
 			},
 		},
 		endpoint: String(process.env.MICROCMS_ENDPOINT_BLOG),
@@ -56,7 +56,7 @@ export const getDetail = async (
   const detailData = await client.getListDetail<Blog>({
     customRequestInit: {
 			next: {
-				revalidate: 0,
+				revalidate: Number(process.env.MICROCMS_REVALIDATE),
 			},
 		},
     endpoint: String(process.env.MICROCMS_ENDPOINT_BLOG),
@@ -72,7 +72,7 @@ export async function getCategories(queries?: MicroCMSQueries) {
 	const categories = await client.getList<Category>({
 		customRequestInit: {
 			next: {
-				revalidate: 3600,
+				revalidate: Number(process.env.MICROCMS_REVALIDATE),
 			},
 		},
 		endpoint: String(process.env.MICROCMS_ENDPOINT_CATEGORY),
@@ -87,7 +87,7 @@ export async function getCategoryDetail(contentId: string, queries?: MicroCMSQue
 	const categoriesDetail = await client.getListDetail<Category>({
 		customRequestInit: {
 			next: {
-				revalidate: 3600,
+				revalidate: Number(process.env.MICROCMS_REVALIDATE),
 			},
 		},
 		endpoint: String(process.env.MICROCMS_ENDPOINT_CATEGORY),
