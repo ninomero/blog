@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -15,5 +17,5 @@
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    margin: 10px 20px;
+    border-color: black;
 }

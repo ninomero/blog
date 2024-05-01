@@ -39,7 +39,7 @@ export async function getBlog(queries?: MicroCMSQueries) {
 	const blog = await client.getList<Blog>({
 		customRequestInit: {
 			next: {
-				revalidate: 3600,
+				revalidate: 0,
 			},
 		},
 		endpoint: String(process.env.MICROCMS_ENDPOINT_BLOG),
@@ -56,7 +56,7 @@ export const getDetail = async (
   const detailData = await client.getListDetail<Blog>({
     customRequestInit: {
 			next: {
-				revalidate: 3600,
+				revalidate: 0,
 			},
 		},
     endpoint: String(process.env.MICROCMS_ENDPOINT_BLOG),
