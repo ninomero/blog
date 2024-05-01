@@ -19,7 +19,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 	const category = await getCategoryDetail(id);
 
 	return {
-		title: `Sample Blog | ${category.name}のカテゴリーの記事一覧`,
+		title: `${category.name}のカテゴリーの記事一覧`,
 	};
 }
 
@@ -40,7 +40,7 @@ export default function CategoryArticleList(props: Props) {
   return (
     <>
         <Header />
-        <div className="flex flex-col" id="top">
+        <div className="flex flex-col mt-10" id="top">
           <div className="grid grid-cols-1 xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 w-3/4 mx-auto">
             {contents.contents.map((blog) => (
               <article className="flex flex-col shadow p-2" key={blog.id}>

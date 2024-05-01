@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Navb
 import { getCategories } from '@/libs/microcms';
 import { use } from "react";
 import ScrollTop from '../../elements/transition/ScrollTop';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 
 const Header = () => {
     // カテゴリの取得
@@ -18,8 +19,7 @@ const Header = () => {
 
             <NavbarContent className="sm:hidden pr-3" justify="center">
                 <NavbarBrand>
-                    {/* <AcmeLogo /> */}
-                    <p className="font-bold text-inherit">
+                    <p className="font-bold text-inherit title">
                         <a href='/'>
                             {title}
                         </a>
@@ -29,10 +29,11 @@ const Header = () => {
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarBrand>
-                    {/* <AcmeLogo /> */}
-                    <p className="font-bold text-inherit"><a href='/'>
-                        {title}
-                    </a></p>
+                    <p className="font-bold text-inherit title">
+                        <a href='/'>
+                            {title}
+                        </a>
+                    </p>
                 </NavbarBrand>
                 <NavbarBrand className="gap-4" >
                     {categories.contents.map((item, index) => (
@@ -47,7 +48,9 @@ const Header = () => {
 
             <NavbarContent justify="end">
                 <NavbarItem>
-                    <ScrollTop>TOP</ScrollTop>
+                    <ScrollTop>
+                        <KeyboardDoubleArrowUpIcon />
+                    </ScrollTop>
                 </NavbarItem>
             </NavbarContent>
 

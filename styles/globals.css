@@ -31,3 +31,24 @@
     font-weight: 500;
     color: black;
 }
+
+code  {
+    background-color: var(--markdown-color-inlineCodeContainer);
+    font-size: 0.88em;
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    border-radius: 4px;
+    padding: 1px 4px;
+}
+
+p a {
+    color: #563bff!important;
+}
+
+u {
+    color: #563bff!important;
+}
+
+/* tailwindcssの影響でaタグやcodeタグのスタイルがうまいことなっていないので気を付ける */
+.title a {
+    color: black!important;
+}

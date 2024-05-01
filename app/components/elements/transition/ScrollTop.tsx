@@ -10,7 +10,7 @@ interface Props {
 
 const ScrollTop: FunctionComponent<Props> = ({ children }) => {
     return (
-        <Scroll to='top' smooth={true} duration={600} offset={-100}>{children}</Scroll>
+        <Scroll className="cursor-pointer" to='top' smooth={true} duration={600} offset={-100}>{children}</Scroll>
     );
 }
 

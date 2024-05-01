@@ -43,7 +43,7 @@ export default async function StaticDetailPage({
                     <h1>{`作成日時: ${dayjs(createDate).format('YYYY年MM月DD日')}`}</h1>
                     <h1>{`更新日時: ${dayjs(updateDate).format('YYYY年MM月DD日')}`}</h1>
                 </div>
-                <div className="md:text-md sm:text-sm">{parse(post.content)}</div>
+                <div className="prose">{parse(post.content)}</div>
             </div>
             <Footer />
         </>
