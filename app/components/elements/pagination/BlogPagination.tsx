@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 type Props = PaginationProps;
 
 export default function BlogPagination(props: Props) {
-	console.log(props.total)
 	const router = useRouter();
 	function handleChange(page: number) {
 		router.push(`/?page=${page}`);

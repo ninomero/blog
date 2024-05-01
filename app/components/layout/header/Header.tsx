@@ -33,15 +33,15 @@ const Header = () => {
                         {title}
                     </a></p>
                 </NavbarBrand>
-                {/* <>
-                    {menuItems.map((item, index) => {
-                        <NavbarItem key={`${item}-${index}`}>
-                            <Link color="foreground" href={item.path}>
-                                {item.category}
-                            </Link>
-                        </NavbarItem>
-                    })}
-                </> */}
+                <NavbarBrand className="gap-4" >
+                {categories.contents.map((item, index) => (
+                    <NavbarItem key={`${item}-${index}`}>
+                        <Link className="text-sm" color="foreground" size="lg" href={`/category/${item.id}`}>
+                            {item.name}
+                        </Link>
+                    </NavbarItem>
+                ))}
+                </NavbarBrand>
             </NavbarContent>
 
             <NavbarContent justify="end">

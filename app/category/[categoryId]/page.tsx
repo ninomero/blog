@@ -5,6 +5,7 @@ import { getBlog, getCategoryDetail } from "@/libs/microcms";
 import { Metadata } from "next";
 import { NextUIProvider } from "@nextui-org/react";
 import { Header } from "@/app/components/layout/header";
+import { BlogPagination } from "@/app/components";
 
 type Props = {
   params: { categoryId: string };
@@ -21,19 +22,24 @@ type Props = {
 // 	};
 // }
 
+const parPage = 5;
+
 export default function CategoryArticleList(props: Props) {
   const contents = use(
     getBlog({
-      // filterが正常に機能していない
-      // filters: `categories[contains]${props.params.categoryId}`,
+      filters: `categories[contains]${props.params.categoryId}`,
     })
   );
 
-  console.log(contents);
+  const page = Number(props.searchParams.page ?? "1");
+
+  // console.log(contents.contents[1].category.id)
+
+  // ブログ総数取得
+  const totalCount = contents.totalCount;
 
   return (
     <>
-      <NextUIProvider>
         <Header />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-3/4 mx-auto">
           {contents.contents.map((blog) => (
@@ -61,7 +67,12 @@ export default function CategoryArticleList(props: Props) {
             </article>
           ))}
         </div>
-      </NextUIProvider>
+        <div className="pagination">
+          <BlogPagination
+            total={Math.ceil(totalCount / parPage)}
+            initialPage={page}
+          />
+        </div>
     </>
 
   );

@@ -8,12 +8,8 @@ import type {
 // カテゴリーの型定義
 export type Category = {
   id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
   name: string;
-}
+}& MicroCMSDate
 
 //ブログの型定義
 export type Blog = {
@@ -21,7 +17,7 @@ export type Blog = {
   title: string;
   content: string;
   eyecatch?: MicroCMSImage;
-  category: Category
+  category: Category[]
 } & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
@@ -43,10 +39,10 @@ export async function getBlog(queries?: MicroCMSQueries) {
 	const blog = await client.getList<Blog>({
 		customRequestInit: {
 			next: {
-				revalidate: 0,
+				revalidate: 3600,
 			},
 		},
-		endpoint: String(process.env.MICROCMS_ENDPOINT),
+		endpoint: String(process.env.MICROCMS_ENDPOINT_BLOG),
 		queries,
 	});
 	return blog;
@@ -60,10 +56,10 @@ export const getDetail = async (
   const detailData = await client.getListDetail<Blog>({
     customRequestInit: {
 			next: {
-				revalidate: 0,
+				revalidate: 3600,
 			},
 		},
-    endpoint: String(process.env.MICROCMS_ENDPOINT),
+    endpoint: String(process.env.MICROCMS_ENDPOINT_BLOG),
     contentId,
     queries,
   });
@@ -76,10 +72,10 @@ export async function getCategories(queries?: MicroCMSQueries) {
 	const categories = await client.getList<Category>({
 		customRequestInit: {
 			next: {
-				revalidate: 0,
+				revalidate: 3600,
 			},
 		},
-		endpoint: "categories",
+		endpoint: String(process.env.MICROCMS_ENDPOINT_CATEGORY),
 		queries,
 	});
 	return categories;
@@ -87,17 +83,14 @@ export async function getCategories(queries?: MicroCMSQueries) {
 
 // idに該当するカテゴリを取得
 export async function getCategoryDetail(contentId: string, queries?: MicroCMSQueries) {
-  
-  console.log("^^^^^^^^^^^^^^^^^^^^^^^")
-  console.log(contentId)
 
 	const categoriesDetail = await client.getListDetail<Category>({
 		customRequestInit: {
 			next: {
-				revalidate: 0,
+				revalidate: 3600,
 			},
 		},
-		endpoint: "categories",
+		endpoint: String(process.env.MICROCMS_ENDPOINT_CATEGORY),
 		contentId,
 		queries,
 	});
