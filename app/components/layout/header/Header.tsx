@@ -1,7 +1,8 @@
 import React from 'react'
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
-import { Category, getCategories } from '@/libs/microcms';
+import { getCategories } from '@/libs/microcms';
 import { use } from "react";
+import ScrollTop from '../../elements/transition/ScrollTop';
 
 const Header = () => {
     // カテゴリの取得
@@ -34,21 +35,19 @@ const Header = () => {
                     </a></p>
                 </NavbarBrand>
                 <NavbarBrand className="gap-4" >
-                {categories.contents.map((item, index) => (
-                    <NavbarItem key={`${item}-${index}`}>
-                        <Link className="text-sm" color="foreground" size="lg" href={`/category/${item.id}`}>
-                            {item.name}
-                        </Link>
-                    </NavbarItem>
-                ))}
+                    {categories.contents.map((item, index) => (
+                        <NavbarItem key={`${item}-${index}`}>
+                            <Link className="text-sm" color="foreground" size="lg" href={`/category/${item.id}`}>
+                                {item.name}
+                            </Link>
+                        </NavbarItem>
+                    ))}
                 </NavbarBrand>
             </NavbarContent>
 
             <NavbarContent justify="end">
                 <NavbarItem>
-                    <Button as={Link} color="warning" href="/" variant="flat">
-                        Go to TOP
-                    </Button>
+                    <ScrollTop>TOP</ScrollTop>
                 </NavbarItem>
             </NavbarContent>
 

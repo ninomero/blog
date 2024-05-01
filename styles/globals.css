@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 .pagination {
     display: flex;
     justify-content: center;
@@ -18,4 +15,19 @@
     justify-content: center;
     align-items: center;
     border-color: black;
+}
+
+/* footer */
+.footer {
+    padding: 40px calc(100vw / 24);
+    padding-top: calc(40 * 3);
+    padding-bottom: 16px;
+}
+
+.footer p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: black;
 }

@@ -34,7 +34,7 @@ export default async function StaticDetailPage({
     return (
         <>
             <Header />
-            <div className="blog xl:px-96 md:px-48 sm:px-36 px-10">
+            <div className="blog xl:px-96 md:px-48 sm:px-36 px-10" id="top">
                 <div className="w-full md:text-lg font-bold my-8 text-center sm:text-sm">
                     <h1>{post.title}</h1>
                 </div>
