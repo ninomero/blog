@@ -23,7 +23,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 	};
 }
 
-const parPage = 5;
+const parPage = 12;
 
 export default function CategoryArticleList(props: Props) {
   const contents = use(

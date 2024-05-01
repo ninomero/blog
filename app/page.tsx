@@ -13,7 +13,7 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-const parPage = 5;
+const parPage = 12;
 
 export default async function Home(props: Props) {
   const page = Number(props.searchParams.page ?? "1");
