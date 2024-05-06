@@ -32,23 +32,34 @@
     color: black;
 }
 
-code  {
-    background-color: var(--markdown-color-inlineCodeContainer);
-    font-size: 0.88em;
-    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    border-radius: 4px;
-    padding: 1px 4px;
-}
-
+/* microcmsの影響でpタグとcodeタグが正常に表示されないのでここで強制的に修正 */
 p a {
-    color: #563bff!important;
+    color: var(--color-text-current);
 }
 
 u {
-    color: #563bff!important;
+    color: var(--color-text-current);
 }
 
 /* tailwindcssの影響でaタグやcodeタグのスタイルがうまいことなっていないので気を付ける */
 .title a {
     color: black!important;
+}
+
+.prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
+    content: none!important;
+}
+
+.prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::after {
+    content: none!important;
+}
+
+.prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+    color: var(--color-bg-white);
+    background-color: var(--tw-prose-pre-bg);
+    padding: var(--spacing-2x-small) var(--spacing-x-small);
+    margin: 0 var(--spacing-2x-small);
+    font-size: var(--font-size-small);
+    line-height: 1;
+    display: inline-block;
 }
