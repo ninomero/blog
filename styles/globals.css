@@ -34,11 +34,11 @@
 
 /* microcmsの影響でpタグとcodeタグが正常に表示されないのでここで強制的に修正 */
 p a {
-    color: var(--color-text-current);
+    color: #563bff!important;
 }
 
 u {
-    color: var(--color-text-current);
+    color: #563bff!important;
 }
 
 /* tailwindcssの影響でaタグやcodeタグのスタイルがうまいことなっていないので気を付ける */
@@ -55,11 +55,11 @@ u {
 }
 
 .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-    color: var(--color-bg-white);
-    background-color: var(--tw-prose-pre-bg);
-    padding: var(--spacing-2x-small) var(--spacing-x-small);
-    margin: 0 var(--spacing-2x-small);
-    font-size: var(--font-size-small);
+    color: white;
+    background-color: #1f2937;
+    padding: 4px 8px;
+    margin: 0 4px;
+    font-size: 14px;
     line-height: 1;
     display: inline-block;
 }
