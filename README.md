@@ -2,20 +2,15 @@
 
 ![blog_4.png](./public/blog_4.png)  
 
----
-
 ## 作成した目的
 
 自己学習を行った内容を備忘録のように残して即座に見るブログのようなものが個人的に欲しく作成
 
----
-
 ## ブログ概要
 
 `Next.js` と `microCMS` を使用してより簡単に備忘録を作成できるように設計  
-また、SSGを使用してより速度を高めてブログページを開けるようにしたいためにVercelを使用してCI/CDを利用して自動でブログ記事を作成するたびにビルドするように設計
+また、SSGを使用してより速度を高めてブログページを閲覧できるようにしたいたにVercelのCI/CDを利用して自動でブログ記事を作成するたびにビルドするように設計
 
----
 
 ## 制作期間
 
@@ -24,8 +19,6 @@
 - 以下のYouTubeサイトを利用して作成
 
 URL: [https://youtu.be/dNpONz4Yi04?si=iFltX-n8DyVM3WBP](https://youtu.be/dNpONz4Yi04?si=iFltX-n8DyVM3WBP)
-
----
 
 ## 主な開発環境
 
@@ -38,8 +31,6 @@ URL: [https://youtu.be/dNpONz4Yi04?si=iFltX-n8DyVM3WBP](https://youtu.be/dNpONz4
 | Framework | Next.js | 14.2.3 |
 | Library | React | 18.0.0 |
 | CSS Framework| Tailwind CSS | 3.4.1 |
-
----
 
 ## 主な機能
 
