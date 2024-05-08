@@ -36,7 +36,7 @@ URL: [https://youtu.be/dNpONz4Yi04?si=iFltX-n8DyVM3WBP](https://youtu.be/dNpONz4
 
 ### ブログ記事作成後の自動デプロイ
 
-[microCMS](https://microcms.io/)からブログ記事を作成するとVercelのWebhookを利用して自動デプロイが行われ、ブログサイトにて閲覧が可能になる(※ 1時間ごとに再ビルドするようにしているため気を付ける)  
+[microCMS](https://microcms.io/)からブログ記事を作成するとVercelのWebhookを利用した自動デプロイが行われ、ブログサイトにて閲覧が可能になる(※ キャッシュを1時間保持するようにしているため気を付ける)  
 
 ![blog_1.png](./public/blog_1.png)  
 
